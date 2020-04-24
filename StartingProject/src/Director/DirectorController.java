@@ -34,10 +34,19 @@ public class DirectorController implements Initializable {
 	private TextField contact;
 	@FXML
 	private TextField department;
-
+	@FXML
+	private TextField ID;
+	@FXML 
+	private TextField project;
+	@FXML
+	private TextArea comments;
+	@FXML
+	private DatePicker date;
 	
 	@FXML
 	private TableView<EmployeeData> employeetable;
+	@FXML
+	private TableView<ProjectToAssign> projecttable;
 	
 	@FXML
 	private TableColumn<EmployeeData, String> idcol;
@@ -49,10 +58,20 @@ public class DirectorController implements Initializable {
 	private TableColumn<EmployeeData, String> contactcol;
 	@FXML
 	private TableColumn<EmployeeData, String> departmentcol;
+	@FXML
+	private TableColumn<ProjectToAssign, String> IDprocol;
+	@FXML
+	private TableColumn<ProjectToAssign, String> commentscol;
+	@FXML
+	private TableColumn<ProjectToAssign, String> projectcol;
+	@FXML
+	private TableColumn<ProjectToAssign, String> datecol;
 	
 	private Button loadButton;
+	private Button projectload;
 	private dbConnection dc;
 	private ObservableList<EmployeeData> data ;
+	private ObservableList<ProjectToAssign> data2;
 	
 
 	
@@ -89,6 +108,38 @@ public class DirectorController implements Initializable {
 	
 	}
 	
+	
+	
+	
+	@FXML
+	private void loadProjectData(ActionEvent event) throws SQLException {
+		try {
+			Connection connec = dbConnection.getConnection();
+			this.data2 = FXCollections.observableArrayList();
+			
+			ResultSet rsi = connec.createStatement().executeQuery("SELECT * FROM Projects");
+			while (rsi.next()) {
+				this.data2.add(new ProjectToAssign(rsi.getString(1),rsi.getString(2),rsi.getString(3), rsi.getString(4)));
+				
+			}
+		}
+		catch (SQLException e) {
+		System.err.println("Error");
+		}
+
+		this.IDprocol.setCellValueFactory(new PropertyValueFactory("ID") );
+		this.projectcol.setCellValueFactory(new PropertyValueFactory("Project") );
+		this.commentscol.setCellValueFactory(new PropertyValueFactory("Comments") );
+		this.datecol.setCellValueFactory(new PropertyValueFactory("Date") );
+		
+	this.projecttable.setItems(null);
+	this.projecttable.setItems(this.data2);
+	
+	}
+	
+	
+	
+	
 	@FXML
 	private void addEmployee(ActionEvent event) {
 		String sql = "INSERT INTO 'Employee'('ID','Name','DateOfBirth','Contact','Department') VALUES (?,?,?,?,?)";
@@ -113,6 +164,32 @@ public class DirectorController implements Initializable {
 		}
 	}
 	
+	
+	
+	@FXML
+	private void addProject(ActionEvent event) {
+		String sql = "INSERT INTO Projects('ID','Project','Comments','Date') VALUES (?,?,?,?)";
+		
+		try {
+			Connection connec = dbConnection.getConnection();
+			PreparedStatement stmt = connec.prepareStatement(sql);
+			
+			stmt.setString(1, this.ID.getText());
+			stmt.setString(2, this.project.getText());
+			stmt.setString(3, this.comments.getText());
+			stmt.setString(4, this.date.getEditor().getText());
+			
+			stmt.execute();
+			connec.close();
+		}
+		catch(SQLException e) {
+			 System.err.println("Got an exception!");
+		      System.err.println(e.getMessage());
+		}
+	}
+	
+	
+	
 	@FXML
 	private void clearFields(ActionEvent event) {
 		this.id.setText("");
@@ -120,34 +197,59 @@ public class DirectorController implements Initializable {
 		this.dob.setValue(null);
 		this.contact.setText("");
 		this.department.setText("");
+		this.ID.setText("");
+		this.project.setText("");
+		this.comments.setText("");
+		this.date.setValue(null);
 		
 	}
+	
+	
 	@FXML
 	private void delete(ActionEvent event) {
-		String sql ="DELETE FROM 'Employee' WHERE id = ?";
-		 try (Connection connec = dbConnection.getConnection();
-	                PreparedStatement stmt = connec.prepareStatement(sql)) {
-			 stmt.setString(1,null);
-				stmt.setString(2,null);
-				stmt.setString(3,null);
-				stmt.setString(4,null);
-				stmt.setString(5,null);
-				
-				
-	         stmt.executeUpdate();
-	         connec.close();
-
-	    } catch (SQLException e) {
+		String sql ="DELETE FROM Employee WHERE ID = ? AND Name = ? AND DateOfBirth = ? AND Contact = ? AND Department = ?";
+		try {
+			Connection connec = dbConnection.getConnection();
+			PreparedStatement stmt = connec.prepareStatement(sql);
+			
+			stmt.setString(1, this.id.getText());
+			stmt.setString(2, this.name.getText());
+			stmt.setString(3, this.dob.getEditor().getText());
+			stmt.setString(4, this.contact.getText());
+			stmt.setString(5, this.department.getText());
+			
+			
+			stmt.execute();
+			connec.close();
+		}
+		catch (SQLException e) {
 	    	e.printStackTrace();
 	        
 	    }
 	}
 	
+	@FXML
+	private void deletepro(ActionEvent event) {
+		String sql ="DELETE FROM Projects WHERE ID = ? AND Project = ? AND Comments = ? AND Date = ?";
+		try {
+			Connection connec = dbConnection.getConnection();
+			PreparedStatement stmt = connec.prepareStatement(sql);
+			
+			stmt.setString(1, this.ID.getText());
+			stmt.setString(2, this.project.getText());
+			stmt.setString(3, this.comments.getText());
+			stmt.setString(4, this.date.getEditor().getText());
+			
+			
+			stmt.execute();
+			connec.close();
+		}
+		catch (SQLException e) {
+	    	e.printStackTrace();
+	        
+	    }
+	}
 	
 		
 
 }
-	
-	
-
-

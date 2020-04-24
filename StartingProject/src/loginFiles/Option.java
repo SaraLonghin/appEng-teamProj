@@ -1,6 +1,5 @@
 package loginFiles;
 
-
 public enum Option {
 	Director, Employee;
 	

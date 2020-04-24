@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Director.DirectorController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Director.DirectorController">
    <children>
       <AnchorPane layoutX="-122.0" layoutY="-198.0" prefHeight="800.0" prefWidth="1300.0">
          <children>
@@ -120,6 +120,11 @@
                                           <Insets left="15.0" right="15.0" />
                                        </VBox.margin>
                                     </TextField>
+                                    <DatePicker fx:id="date" prefHeight="27.0" prefWidth="200.0" promptText="Date">
+                                       <VBox.margin>
+                                          <Insets left="20.0" />
+                                       </VBox.margin>
+                                    </DatePicker>
                                     <TextArea fx:id="comments" prefHeight="170.0" prefWidth="222.0" promptText="Comments:">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
@@ -130,24 +135,24 @@
                                           <Insets />
                                        </VBox.margin>
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="168.0" text="Add">
+                                          <Button fx:id="projectadd" mnemonicParsing="false" onAction="#addProject" prefHeight="27.0" prefWidth="168.0" text="Add">
                                              <HBox.margin>
                                                 <Insets left="15.0" right="5.0" top="10.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="156.0" text="Delete">
+                                          <Button fx:id="projectdelete" mnemonicParsing="false" onAction="#deletepro" prefHeight="27.0" prefWidth="156.0" text="Delete">
                                              <HBox.margin>
                                                 <Insets right="15.0" top="10.0" />
                                              </HBox.margin>
                                           </Button>
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="236.0" text="Load data">
+                                    <Button fx:id="projectload" mnemonicParsing="false" onAction="#loadProjectData" prefHeight="27.0" prefWidth="236.0" text="Load data">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" top="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="236.0" text="Clear fields">
+                                    <Button fx:id="projectclear" mnemonicParsing="false" onAction="#clearFields" prefHeight="27.0" prefWidth="236.0" text="Clear fields">
                                        <VBox.margin>
                                           <Insets left="15.0" right="15.0" />
                                        </VBox.margin>
@@ -158,9 +163,11 @@
                                  <children>
                                     <TableView fx:id="projecttable" prefHeight="569.0" prefWidth="993.0">
                                       <columns>
-                                        <TableColumn fx:id="IDcol" prefWidth="310.67218017578125" text="ID Employee" />
-                                        <TableColumn fx:id="projectcol" prefWidth="309.9534912109375" text="Project to assign" />
-                                          <TableColumn fx:id="commentscol" prefWidth="320.0465087890625" text="Comments" />
+                                        <TableColumn fx:id="IDcol" prefWidth="167.0" text="ID Employee" />
+                                        <TableColumn fx:id="projectcol" prefWidth="253.0" text="Project to assign" />
+                                          <TableColumn fx:id="commentscol" prefWidth="310.0" text="Comments" />
+                                          <TableColumn fx:id="datecol" prefWidth="210.0" text="Date" />
+                                          
                                       </columns>
                                     </TableView>
                                  </children>

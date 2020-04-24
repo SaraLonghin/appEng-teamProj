@@ -18,8 +18,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import loginFiles.LoginModel;
-import loginFiles.Option;
+
+
 
 
 public class LoginController implements Initializable {
