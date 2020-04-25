@@ -1,5 +1,6 @@
 package Employee;
 
+import Director.ProjectToAssign;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+
 import dbUtil.dbConnection;
 
 public class EmployeeController implements Initializable {
@@ -35,6 +37,7 @@ public class EmployeeController implements Initializable {
 	
 	@FXML
 	private TableView<ProjectToAssign> projecttable;
+	
 	@FXML
 	private TableColumn<ProjectToAssign, String> IDcol;
 	@FXML
@@ -43,38 +46,47 @@ public class EmployeeController implements Initializable {
 	private TableColumn<ProjectToAssign, String> projectcol;
 	@FXML
 	private TableColumn<ProjectToAssign, String> datecol;
+	
 	@FXML
 	private Button loadButton;
 	@FXML
-	private dbConnection dc;
+	private dbConnection dc2;
 	@FXML
-	private ObservableList<ProjectToAssign> data;
+	private ObservableList<ProjectToAssign> data2;
 	
 
 	
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		this.dc = new dbConnection();
+		this.dc2 = new dbConnection();
 	}
 	
 	@FXML
-	private void loadEmployeeData() throws SQLException {
+	private void loadProjectData() throws SQLException {
 		try {
 			Connection connec = dbConnection.getConnection();
-			this.data = FXCollections.observableArrayList();
+			this.data2 = FXCollections.observableArrayList();
 			
 			ResultSet rs = connec.createStatement().executeQuery("SELECT * FROM Projects");
-			while (rs.next()) 
-				data.add(new ProjectToAssign(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4)));
+			while (rs.next()) {
+				this.data2.add(new ProjectToAssign(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4)));
+				
+			}
 		}
+		
 		catch (SQLException e) {
 		System.err.println("Error");
 		}
-		this.IDcol.setCellValueFactory(new PropertyValueFactory<ProjectToAssign, String>("ID") );
-		this.projectcol.setCellValueFactory(new PropertyValueFactory<ProjectToAssign, String>("Project") );
-		this.commentscol.setCellValueFactory(new PropertyValueFactory<ProjectToAssign, String>("Comments") );
-		this.datecol.setCellValueFactory(new PropertyValueFactory<ProjectToAssign, String>("Date") );
-		this.projecttable.setItems(null);
-		this.projecttable.setItems(this.data);
+
+	this.IDcol.setCellValueFactory(new PropertyValueFactory("ID") );
+	this.projectcol.setCellValueFactory(new PropertyValueFactory("Project") );
+	this.commentscol.setCellValueFactory(new PropertyValueFactory("Comments") );
+	this.datecol.setCellValueFactory(new PropertyValueFactory("Date") );
+	
+	
+	this.projecttable.setItems(null);
+	this.projecttable.setItems(this.data2);
+	
+	
 	}
 }

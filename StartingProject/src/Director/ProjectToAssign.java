@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ProjectToAssign {
+	
 	private final StringProperty ID;
 	private final StringProperty Project;
 	private final StringProperty Comments;

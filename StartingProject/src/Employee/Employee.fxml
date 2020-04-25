@@ -22,7 +22,7 @@
                      <children>
                         <HBox layoutX="406.0" layoutY="-3.0" prefHeight="689.0" prefWidth="877.0">
                            <children>
-                              <TableView prefHeight="689.0" prefWidth="877.0">
+                              <TableView fx:id="projecttable" prefHeight="689.0" prefWidth="877.0">
                                 <columns>
                                   <TableColumn fx:id="IDcol" prefWidth="200.0" text="ID" />
                                   <TableColumn fx:id="projectcol" prefWidth="200.0" text="Project" />
@@ -34,7 +34,7 @@
                         </HBox>
                         <VBox layoutX="3.0" layoutY="125.0" prefHeight="561.0" prefWidth="404.0">
                            <children>
-                              <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadEmployeeData" prefHeight="27.0" prefWidth="71.0" text="Load">
+                              <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadProjectData" prefHeight="27.0" prefWidth="71.0" text="Load">
                                  <VBox.margin>
                                     <Insets left="160.0" />
                                  </VBox.margin>

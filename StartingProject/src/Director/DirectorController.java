@@ -59,7 +59,7 @@ public class DirectorController implements Initializable {
 	@FXML
 	private TableColumn<EmployeeData, String> departmentcol;
 	@FXML
-	private TableColumn<ProjectToAssign, String> IDprocol;
+	private TableColumn<ProjectToAssign, String> IDcol;
 	@FXML
 	private TableColumn<ProjectToAssign, String> commentscol;
 	@FXML
@@ -112,28 +112,31 @@ public class DirectorController implements Initializable {
 	
 	
 	@FXML
-	private void loadProjectData(ActionEvent event) throws SQLException {
+	private void loadProjectData() throws SQLException {
 		try {
 			Connection connec = dbConnection.getConnection();
 			this.data2 = FXCollections.observableArrayList();
 			
-			ResultSet rsi = connec.createStatement().executeQuery("SELECT * FROM Projects");
-			while (rsi.next()) {
-				this.data2.add(new ProjectToAssign(rsi.getString(1),rsi.getString(2),rsi.getString(3), rsi.getString(4)));
+			ResultSet rs = connec.createStatement().executeQuery("SELECT * FROM Projects");
+			while (rs.next()) {
+				this.data2.add(new ProjectToAssign(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4)));
 				
 			}
 		}
+		
 		catch (SQLException e) {
 		System.err.println("Error");
 		}
 
-		this.IDprocol.setCellValueFactory(new PropertyValueFactory("ID") );
-		this.projectcol.setCellValueFactory(new PropertyValueFactory("Project") );
-		this.commentscol.setCellValueFactory(new PropertyValueFactory("Comments") );
-		this.datecol.setCellValueFactory(new PropertyValueFactory("Date") );
-		
+	this.IDcol.setCellValueFactory(new PropertyValueFactory("ID") );
+	this.projectcol.setCellValueFactory(new PropertyValueFactory("Project") );
+	this.commentscol.setCellValueFactory(new PropertyValueFactory("Comments") );
+	this.datecol.setCellValueFactory(new PropertyValueFactory("Date") );
+	
+	
 	this.projecttable.setItems(null);
 	this.projecttable.setItems(this.data2);
+	
 	
 	}
 	
