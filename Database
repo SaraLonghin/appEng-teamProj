@@ -1,0 +1,27 @@
+Database name: Bsystem
+
+Table DIRECTOR
+column ID (INT)
+column Name (TEXT)
+column  DateOfBirth (DATE)
+column Contact (VARCHAR)
+column Department (TEXT)
+
+Table EMPLOYEE
+column ID (INT)
+column Name (TEXT)
+column  DateOfBirth (DATE)
+column Contact (VARCHAR)
+column Department (TEXT)
+
+Table LOGIN
+column Username (VARCHAR)
+column Password (VARCHAR)
+column Division (VARCHAR)
+
+Table Projects
+column ID (VARCHAR)
+column Project (VARCHAR)
+column  Comments (VARCHAR)
+column DATE (DATE)
+
