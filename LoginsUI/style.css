@@ -1,0 +1,156 @@
+body{
+  font: 15px/1.5 Arial, Helvetica,sans-serif;
+  padding:0;
+  margin:0;
+  background-color:#f4f4f4;
+}
+
+/* Global */
+.container{
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+}
+
+#highlight {
+  color:#8430e4;
+  font-weight:bold;
+}
+
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #8430e4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+border: 1.5px solid pink;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: 120px;
+  padding: 10px 18px;
+  background-color: #8430e4;
+    border: 1.5px solid pink;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width:120px;
+    height:120px;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+/* Header **/
+header{
+    text-align:center;
+  background:white;
+  Color:black;
+  padding-top:30px;
+Height: 100px;
+  min-height:70px;
+  border-bottom:#8430e4 3px solid;
+}
+
+
+
+header #branding h1{
+  margin:0;
+}
+
+
+
+/* Showcase */
+#showcase{
+  min-height:400px;
+  background:url('wall1.jpg') no-repeat 0 -270px;
+    opacity: 0.7;
+  text-align:center;
+  color:#ffffff;
+    
+}
+
+
+
+
+footer{
+  padding:20px;
+  
+  color:#ffffff;
+  background-color:#8430e4;
+  text-align: center;
+}
+
+/* Media Queries */
+
+
+
+@media(max-width: 768px){
+
+
+
+  header #branding,
+  header nav,
+  #newsletter h1,
+  #newsletter form,
+  #boxes .box,
+  article#main-col,
+  aside#sidebar{
+    float:none;
+    text-align:center;
+    width:100%;
+  }
+
+  header{
+    padding-bottom:20px;
+  }
+
+  #showcase h1{
+    margin-top:40px;
+  }
+
+  #divider {
+    width: 250px;
+      padding-left: 0px;
+      
+    }  
+       span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 120px;
+  }
+   
+
+}

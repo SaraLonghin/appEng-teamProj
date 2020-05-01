@@ -1,0 +1,135 @@
+body {font-family: Arial;}
+
+
+#add {
+    color: rgba(0,128,0,0.6);
+}
+#rem {
+    color: rgba(255,0,0,0.6);
+}
+#load {
+    color: #8430e4;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #8430e4;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+    color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: white;
+    color: #8430e4;
+}
+
+.tab button.active {
+ background-color: white;
+    color: #8430e4;
+}
+
+/* Create an active/current tablink class */
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+table {
+    margin-top: 0px;
+    font-family: arial, sans-serif;
+  border: 3px solid #8430e4;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
+
+#inp-fields, #list{
+    margin-top: 30px;
+}
+
+.form-control {
+    margin-top: 15px;
+}
+ 
+.btn-success { 
+    background-color: rgba(0,128,0,0.6);
+    margin-top: 30px;
+    width: 110px;
+    margin-right: 5px;
+    color:white;
+    height: 30px;
+    line-height: normal;
+}
+.btn-danger  { 
+    background-color: rgba(255,0,0,0.6);
+    width: 110px;
+    margin-top: 30px;
+    color:white;
+    height: 30px;
+    line-height: normal;
+}
+.btn-light { 
+    background-color: #8430e4;
+    width: 225px;
+    margin-top: 3px;
+    height: 30px;
+    color: white;
+    line-height: normal;
+    border: 2px solid #8430e4;
+   
+}
+
+.btn-light:hover { 
+    background-color: white;
+    color: #8430e4;
+}
+.btn-danger:hover { 
+    background-color: white;
+    color: rgba(255,0,0,0.6);
+}
+.btn-success:hover { 
+    background-color: white;
+    color: rgba(0,128,0,0.6);
+}
+
+#comments {
+    margin-top: 10px;
+    height: 95px;
+}
+
+footer{
+    margin-top: 100px;
+  padding:25px;
+  
+  color:#ffffff;
+  background-color:#8430e4;
+  text-align: center;
+}
+
