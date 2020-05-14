@@ -1,27 +1,26 @@
-Database name: Bsystem
+Database name: appproject
 
-Table DIRECTOR
-column ID (INT)
-column Name (TEXT)
-column  DateOfBirth (DATE)
-column Contact (VARCHAR)
-column Department (TEXT)
+Table director
+column id (INT)
+column name (VARCHAR)
+column surname (VARCHAR)
+column  dob (DATE)
+column pass (VARCHAR)
+column contact (VARCHAR)
+column department (VARCHAR)
 
-Table EMPLOYEE
-column ID (INT)
-column Name (TEXT)
-column  DateOfBirth (DATE)
-column Contact (VARCHAR)
-column Department (TEXT)
+Table employee
+column id (INT)
+column name (VARCHAR)
+column surname (VARCHAR)
+column  dob (DATE)
+column pass (VARCHAR)
+column contact (VARCHAR)
+column department (VARCHAR)
 
-Table LOGIN
-column Username (VARCHAR)
-column Password (VARCHAR)
-column Division (VARCHAR)
-
-Table Projects
-column ID (VARCHAR)
-column Project (VARCHAR)
+Table Project
+column ID_employee (INT)
+column Project_name (TEXT)
 column  Comments (VARCHAR)
 column DATE (DATE)
 
