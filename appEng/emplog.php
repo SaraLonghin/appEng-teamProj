@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['User']))
     {
-     echo '<br/>';
+     echo'';
     }
     else
     {
@@ -40,12 +40,13 @@
                              <form class="searchField" action="findProject.php" method="post">
                                 <div class="container">
                                     <div class="row" >
-                                    <label for="wellcome"><b><h2 id="well">
+                                    <label for="wellcome"><b><h3 id="well">
                                         <?php
    
-                                echo ' Welcome back, ' . $_SESSION['User'].'<br/>'; ?></h2></b></label>
+                                echo ' Welcome back, ' . $_SESSION['User'].'<br/>'; ?>
+                                        <br> Please use your id to check the projects you have been assigned to: </h3></b></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="find" placeholder="Insert your id to see your projects">
+                                        <input type="text" class="form-control" name="find" placeholder="Insert your ID">
                                             <button class="btn btn-search" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
                                         </div>
                                     </div>
@@ -63,7 +64,7 @@
            
         </div>
         </div>
-        </div>
+        
     
         
     
