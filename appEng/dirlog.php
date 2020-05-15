@@ -3,7 +3,7 @@
 
     if(isset($_SESSION['User']))
     {
-        echo ' Welcome back, ' . $_SESSION['User'].'<br/>';
+        echo '<br/>';
     }
     else
     {
@@ -19,8 +19,7 @@
     
     $query = 
       "SELECT   employee.id as empid, employee.name as dirname,  employee.surname as dirsurn, employee.dob as dirdob, employee.contact as dircont, employee.department as dirdep 
-    FROM employee, director
-    WHERE employee.department = director.department";
+    FROM employee";
     
     $result = mysqli_query($conn, $query);
     
@@ -40,15 +39,15 @@
 <link href="style2.css" rel="stylesheet">
 </head>
 <body>
-   
+   <h5> <?php echo ' &nbsp; Welcome back, ' . $_SESSION['User'] ?></h5>
  
 
             <div class="tab">
-                    <button class="tablinks" onclick="openTab(event, 'Employees-List')">Employees-List</button>
+                    <button class="tablinks" id="empbutton" onclick="openTab(event, 'Employees-List')">Employees-List</button>
                 <button class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
                 
               </div>
-              <div id="Employees-List" class="tabcontent">
+              <div id="Employees-List" id= "tabEmployee" style="display:block"  class="tabcontent">
         <div class="container" > 
             <div class="row" >
              
@@ -164,7 +163,7 @@ mysqli_close($conn);
 </div>
 
 
-<div id="Projects" class="tabcontent">
+<div id="Projects" id ="tabproj"  style="display:none" class="tabcontent">
     <div class="container" > 
         <div class="row " >
          
@@ -187,7 +186,8 @@ mysqli_close($conn);
                         <form action="removeProj.php" method="post">
                         <div class="row justify-content-center">
         
-                        <input type="text" id="firstName" class="form-control" placeholder="Project Name*" name="removeP" required>
+                        <input type="text" id="firstName" class="form-control" placeholder="Please insert the Employee ID" name="removeE" required>
+                             <input type="text" class="form-control" placeholder="Please insert the Project name" name="removeP" required>
                         <input type="submit" class="btn btn-danger"  value="Remove" >
                         </div>
                         
@@ -251,7 +251,7 @@ while ($row = mysqli_fetch_array ($result2) ){
 
 ?>
             </tbody>
-            </tbody>
+            
           </table>
          
     </div>
