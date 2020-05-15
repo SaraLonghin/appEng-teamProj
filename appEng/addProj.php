@@ -20,5 +20,8 @@ $comments=$_POST['projComm'];
  VALUES ('$idEmp', '$projname', '$comments', '$dateProj')");
 $result5 = mysqli_query($conn, $query5);
 
+
+header("location:dirlog.php");
 mysqli_close($conn);
+
 ?>
