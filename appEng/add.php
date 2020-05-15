@@ -24,10 +24,7 @@ $dept=$_POST['departmentEmployee'];
  VALUES ('$id', '$nameEmp','$surnEmp', '$date','$passass', '$contact', '$dept' )");
 $result3 = mysqli_query($conn, $query3);
 
- if($result3){
-	echo("<br>Inserimento avvenuto correttamente");
-} else{
-	echo("<br>Inserimento non eseguito");
-}
-?>
+
+header("location:dirlog.php");
+mysqli_close($conn);
 ?>
