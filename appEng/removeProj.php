@@ -10,22 +10,16 @@ $conn=mysqli_connect($host,$user,$pwd,$db) or die ("unable to connect");
 
 
 $projRemove=$_POST['removeP'];
+$empRemove=$_POST['removeE'];
 
 
 
  $query6 = ("DELETE FROM Project  
- WHERE Project_name = '$projRemove'");
+ WHERE ID_Employee = '$empRemove' AND Project_name = '$projRemove'");
 
 $result6 = mysqli_query($conn, $query6);
 
 
- if($result6){
-	echo("<br>eliminazione avvenuto correttamente");
-} else{
-	echo("<br>eliminazione non eseguito");
-}
-
+header("location:dirlog.php");
 mysqli_close($conn);
-
 ?>
-
