@@ -16,9 +16,7 @@ $idToRemove=$_POST['idRemove'];
  WHERE employee.id= $idToRemove");
 $result4 = mysqli_query($conn, $query4);
 
- if($result4){
-	echo("<br>eliminazione avvenuto correttamente");
-} else{
-	echo("<br>elimi9nazione non eseguito");
-}
+
+header("location:dirlog.php");
+mysqli_close($conn);
 ?>
